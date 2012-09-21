@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+  PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+  "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+
+<web-app>
+  <!-- Standard Action Servlet Configuration (with debugging) -->
+  <servlet>
+    <servlet-name>CreateUser</servlet-name>
+    <servlet-class>model.CreateUser</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <!-- Standard Action Servlet Mapping -->
+  <servlet-mapping>
+    <servlet-name>CreateUser</servlet-name>
+    <url-pattern>/CreateUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AuthUser</servlet-name>
+    <servlet-class>model.AuthUser</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <!-- Standard Action Servlet Mapping -->
+  <servlet-mapping>
+    <servlet-name>AuthUser</servlet-name>
+    <url-pattern>/AuthUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+	<servlet-name>Logout</servlet-name>
+	<servlet-class>model.Logout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>Logout</servlet-name>
+	<url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminLogin</servlet-name>
+    <servlet-class>model.AdminLogin</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AdminLogin</servlet-name>
+	<url-pattern>/AuthAdmin</url-pattern>
+  </servlet-mapping>
+
+  <session-config>
+      <session-timeout>30</session-timeout>
+  </session-config>
+  <!-- The Usual Welcome File List -->
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- for testing locally -->
+	<error-page>
+		<error-code>400</error-code>
+		<location>/pages/error.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/pages/error.jsp</location>
+	</error-page>
+</web-app>
