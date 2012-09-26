@@ -94,6 +94,7 @@ if (type.equals("index") || type.equals("error")) {
 			} else if (type.equals("login")
 			&& request.getAttribute("error_message") == null
 			|| type.equals("register")
+			&& request.getAttribute("error_message") == null || type.equals("admin_login")
 			&& request.getAttribute("error_message") == null) {
 
       out.write("\r\n");
@@ -103,18 +104,15 @@ if (type.equals("index") || type.equals("error")) {
 			} else if (type.equals("login")
 			&& request.getAttribute("error_message") != null
 			|| type.equals("register")
+			&& request.getAttribute("error_message") != null || type.equals("admin_login")
 			&& request.getAttribute("error_message") != null) {
 
       out.write("\r\n");
       out.write("<link href=\"styles/styles.css\" rel=\"stylesheet\" />\r\n");
       out.write("<script src=\"script/script.js\"></script>\r\n");
 
-}else if (type.equals("admin_login")){
+}
 
-      out.write("\r\n");
-      out.write("\t<link href=\"../styles/styles.css\" rel=\"stylesheet\" />\r\n");
-      out.write("\t<script src=\"../script/script.js\"></script>\r\n");
-} 
       out.write("\r\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\r\n");
 

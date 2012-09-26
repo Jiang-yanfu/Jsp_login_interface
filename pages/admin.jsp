@@ -8,7 +8,7 @@
 <%! String type = "loggedIn"; %>
 <%@ include file="../layouts/header_login.jsp" %>
 <section>
-	<p id="loggedIn">Admin have logged in as <%= session.getAttribute("name") %></p>
+	<p id="loggedIn">Admin have logged in as <%= session.getAttribute("admin_name") %></p>
 	<%
 		ArrayList<String> users = (ArrayList<String>)request.getAttribute("users");
 	%>

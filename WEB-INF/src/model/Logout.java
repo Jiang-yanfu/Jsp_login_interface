@@ -10,7 +10,14 @@ public class Logout extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		if(session != null)
 		{
-			username = session.getAttribute("name").toString();
+			if(session.getAttribute("admin_name") != null)
+			{
+				username = session.getAttribute("admin_name").toString();
+			}
+			else if(session.getAttribute("name") != null)
+			{
+				username = session.getAttribute("name").toString();
+			}
 			System.out.println("Current session username: " + username);
 			session.invalidate();
 			System.out.println("Session deleted!");

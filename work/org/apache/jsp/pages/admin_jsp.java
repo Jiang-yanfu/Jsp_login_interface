@@ -102,7 +102,7 @@ if (session.getAttribute("name") != null){
       out.write("\r\n");
       out.write("<section>\r\n");
       out.write("\t<p id=\"loggedIn\">Admin have logged in as ");
-      out.print( session.getAttribute("name") );
+      out.print( session.getAttribute("admin_name") );
       out.write("</p>\r\n");
       out.write("\t");
 

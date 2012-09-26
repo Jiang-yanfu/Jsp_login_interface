@@ -60,25 +60,24 @@ public final class error_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write('\r');
       out.write('\n');
  if(type.equals("login")){
-		if(session.getAttribute("name") == null)
-		{
-			Cookie[] cookies = request.getCookies();
-			for(Cookie each : cookies)
+			if(session.getAttribute("name") == null && session.getAttribute("admin_name") == null)
 			{
-				System.out.println("cookie: " + each.getName() + " : " + each.getValue());
-				if(each.getName().equals("name"))
+				Cookie[] cookies = request.getCookies();
+				for(Cookie each : cookies)
 				{
-					session.setAttribute("name", each.getValue());
-					response.sendRedirect("http://localhost:8080/jsp/pages/LoggedIn.jsp");
+					System.out.println("cookie: " + each.getName() + " : " + each.getValue());
+					if(each.getName().equals("name"))
+					{
+						session.setAttribute("name", each.getValue());
+						response.sendRedirect("http://localhost:8080/jsp/pages/LoggedIn.jsp");
+					}
 				}
 			}
-		}
-		else
-		{
-			response.sendRedirect("http://localhost:8080/jsp/pages/LoggedIn.jsp");
-		}
-	}
-
+			else
+			{
+				response.sendRedirect("http://localhost:8080/jsp/pages/LoggedIn.jsp");
+			}
+}
 
       out.write("\r\n");
       out.write("\r\n");
@@ -95,6 +94,7 @@ if (type.equals("index") || type.equals("error")) {
 			} else if (type.equals("login")
 			&& request.getAttribute("error_message") == null
 			|| type.equals("register")
+			&& request.getAttribute("error_message") == null || type.equals("admin_login")
 			&& request.getAttribute("error_message") == null) {
 
       out.write("\r\n");
@@ -104,6 +104,7 @@ if (type.equals("index") || type.equals("error")) {
 			} else if (type.equals("login")
 			&& request.getAttribute("error_message") != null
 			|| type.equals("register")
+			&& request.getAttribute("error_message") != null || type.equals("admin_login")
 			&& request.getAttribute("error_message") != null) {
 
       out.write("\r\n");
@@ -112,7 +113,6 @@ if (type.equals("index") || type.equals("error")) {
 
 }
 
-      out.write("\r\n");
       out.write("\r\n");
       out.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\r\n");
 
@@ -177,7 +177,7 @@ if (type.equals("index")) {
       out.write("</section>\r\n");
       out.write("<footer>\r\n");
       out.write("\t&copy; Allen Liu<br />\r\n");
-      out.write("\tlast update on August 7th\r\n");
+      out.write("\tlast update on September 21th\r\n");
       out.write("</footer>\r\n");
       out.write("</body>\r\n");
       out.write("</html>");
