@@ -6,6 +6,7 @@
 <% if(request.getAttribute("model") != null && request.getAttribute("model").equals("yes")){%>
 <link href = "../jsp/styles/styles.css" rel="stylesheet" />
 <script src ="../jsp/script/script.js"></script>
+<script src="../jsp/script/ajax.js" type="text/javascript"></script>
 <% }else{%>
 <link href = "../styles/styles.css" rel="stylesheet" />
 <script src ="../script/script.js"></script>

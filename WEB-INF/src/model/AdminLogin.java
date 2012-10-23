@@ -21,7 +21,9 @@ public class AdminLogin extends HttpServlet {
 				HttpSession session = request.getSession(true);
 				session.setAttribute("admin_name", name);
 				ArrayList<String> users = pullUser(conn);
+				ArrayList<Integer> ID = pullID(conn);
 				request.setAttribute("users", users);
+				request.setAttribute("ID", ID);
 				RequestDispatcher reqDispatcher = getServletConfig().getServletContext().getRequestDispatcher("/pages/admin.jsp");
 				reqDispatcher.forward(request,response);
 			}
@@ -82,6 +84,19 @@ public class AdminLogin extends HttpServlet {
 		{
 			String name = rs.getString("name");
 			users.add(name);
+		}
+		return users;
+	}
+	public static ArrayList<Integer> pullID(DBConnection conn) throws SQLException
+	{
+		String SQL = "SELECT * FROM users";
+		PreparedStatement ps = conn.getPS(SQL);
+		ResultSet rs = ps.executeQuery();
+		ArrayList<Integer> users = new ArrayList<Integer>();
+		while(rs.next())
+		{
+			int id = rs.getInt("id");
+			users.add(id);
 		}
 		return users;
 	}

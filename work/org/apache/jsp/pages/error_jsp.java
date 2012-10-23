@@ -179,6 +179,11 @@ if (type.equals("index")) {
       out.write("\t&copy; Allen Liu<br />\r\n");
       out.write("\tlast update on September 21th\r\n");
       out.write("</footer>\r\n");
+if(ftype != null && ftype.equals("admin")) {
+      out.write("\r\n");
+      out.write("<script src=\"../script/ajax.js\" type=\"text/javascript\"></script>\r\n");
+} 
+      out.write("\r\n");
       out.write("</body>\r\n");
       out.write("</html>");
     } catch (Throwable t) {

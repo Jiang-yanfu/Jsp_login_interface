@@ -11,11 +11,12 @@
 	<p id="loggedIn">Admin have logged in as <%= session.getAttribute("admin_name") %></p>
 	<%
 		ArrayList<String> users = (ArrayList<String>)request.getAttribute("users");
+		ArrayList<Integer> ID = (ArrayList<Integer>) request.getAttribute("ID");
 	%>
 	<table>
 		<tr><th>Name</th><th>Option</th></tr>
-		<% for(String user : users){ %>
-			<tr><td><% out.print(user); %></td><td><a href = "#">delete?</a></td></tr>
+		<% for(int i = 0; i < users.size(); i++){ %>
+			<tr><td><% out.print(users.get(i)); %></td><td><a name = "delete" href = "?<%out.print(ID.get(i));%>">Delete?</a></td></tr>
 		<%} %>
 	</table>
 	<% if(request.getAttribute("model") != null && request.getAttribute("model").equals("yes")){%>

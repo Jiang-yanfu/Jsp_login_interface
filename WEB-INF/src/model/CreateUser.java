@@ -1,13 +1,9 @@
 package model;
 import java.sql.*;
-import javax.mail.*;
-import javax.mail.internet.*;
-import javax.activation.*;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.security.*;
-import java.util.*;
 public class CreateUser extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{

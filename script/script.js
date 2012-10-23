@@ -13,5 +13,6 @@ function checkPassword(e)
 	}
 }
 window.onload = function(){
-	document.getElementById("form").onsubmit = checkPassword;
+	var form = document.getElementById("form");
+	form.onsubmit = checkPassword;
 };

@@ -75,6 +75,7 @@ public final class LoggedIn_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("<link href = \"../jsp/styles/styles.css\" rel=\"stylesheet\" />\r\n");
       out.write("<script src =\"../jsp/script/script.js\"></script>\r\n");
+      out.write("<script src=\"../jsp/script/ajax.js\" type=\"text/javascript\"></script>\r\n");
  }else{
       out.write("\r\n");
       out.write("<link href = \"../styles/styles.css\" rel=\"stylesheet\" />\r\n");

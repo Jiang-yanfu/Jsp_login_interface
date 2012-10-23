@@ -11,6 +11,15 @@
     <servlet-class>model.CreateUser</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  <servlet>
+    <servlet-name>DeleteUser</servlet-name>
+    <servlet-class>model.DeleteUser</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>DeleteUser</servlet-name>
+    <url-pattern>/Delete</url-pattern>
+  </servlet-mapping>
   <!-- Standard Action Servlet Mapping -->
   <servlet-mapping>
     <servlet-name>CreateUser</servlet-name>

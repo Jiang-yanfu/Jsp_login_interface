@@ -78,6 +78,7 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("<link href = \"../jsp/styles/styles.css\" rel=\"stylesheet\" />\r\n");
       out.write("<script src =\"../jsp/script/script.js\"></script>\r\n");
+      out.write("<script src=\"../jsp/script/ajax.js\" type=\"text/javascript\"></script>\r\n");
  }else{
       out.write("\r\n");
       out.write("<link href = \"../styles/styles.css\" rel=\"stylesheet\" />\r\n");
@@ -107,16 +108,19 @@ if (session.getAttribute("name") != null){
       out.write("\t");
 
 		ArrayList<String> users = (ArrayList<String>)request.getAttribute("users");
+		ArrayList<Integer> ID = (ArrayList<Integer>) request.getAttribute("ID");
 	
       out.write("\r\n");
       out.write("\t<table>\r\n");
       out.write("\t\t<tr><th>Name</th><th>Option</th></tr>\r\n");
       out.write("\t\t");
- for(String user : users){ 
+ for(int i = 0; i < users.size(); i++){ 
       out.write("\r\n");
       out.write("\t\t\t<tr><td>");
- out.print(user); 
-      out.write("</td><td><a href = \"#\">delete?</a></td></tr>\r\n");
+ out.print(users.get(i)); 
+      out.write("</td><td><a name = \"delete\" href = \"?");
+out.print(ID.get(i));
+      out.write("\">Delete?</a></td></tr>\r\n");
       out.write("\t\t");
 } 
       out.write("\r\n");
